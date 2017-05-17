@@ -1,0 +1,18 @@
+{
+	"name": "mmi/mmi-cms-standard",
+	"license": "MIT",
+	"type": "project",
+	"description": "MMi Framework project with CMS - standard edition",
+	"autoload": {
+		"psr-4": {
+			"": "src/"
+		}
+	},
+	"require": {
+		"mmi/mmi-cms": "*"
+	},
+	"scripts": {
+		"post-update-cmd": "Mmi\\Command\\ComposerInstaller::postUpdate",
+		"post-install-cmd": "Mmi\\Command\\ComposerInstaller::postInstall"
+	}
+}
