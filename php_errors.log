@@ -1,5 +1,0 @@
-[17-May-2017 20:44:18 Europe/Warsaw] PHP Fatal error:  Uncaught Exception: No ENV defined in /home/maciej/Server/gpsloc/bin/CommandAbstract.php:26
-Stack trace:
-#0 /home/maciej/Server/gpsloc/bin/DbDeploy.php(39): Mmi\Command\CommandAbstract->__construct(NULL)
-#1 {main}
-  thrown in /home/maciej/Server/gpsloc/bin/CommandAbstract.php on line 26
