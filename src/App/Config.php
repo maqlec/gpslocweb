@@ -13,12 +13,14 @@ namespace App;
 /**
  * Ogólna konfiguracja aplikacji
  */
-class Config extends \Cms\App\CmsKernelConfig {
+class Config extends \Cms\App\CmsKernelConfig
+{
 
 	/**
 	 * Inicjalizacja konfiguracji
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 
 		//konfiguracja lokalnego bufora
 		$this->localCache = new \Mmi\Cache\CacheConfig;
@@ -52,7 +54,8 @@ class Config extends \Cms\App\CmsKernelConfig {
 
 		//konfiguracja nawigatora
 		$this->navigation = new \Mmi\Navigation\NavigationConfig;
-		$this->navigation->addElement(\CmsAdmin\App\CmsNavigationConfig::getMenu());
+		$this->navigation->addElement(\CmsAdmin\App\CmsNavigationConfig::getMenu()
+		);
 
 		//konfiguracja bazy danych
 		$this->db = new \Mmi\Db\DbConfig;

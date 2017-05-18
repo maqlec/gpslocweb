@@ -14,7 +14,7 @@ class RouterConfig extends \Mmi\Mvc\RouterConfig {
 
 		//strona glowna
 		$this->setRoute('records', '', ['module' => 'records']);
-		
+
 	}
 
 }
