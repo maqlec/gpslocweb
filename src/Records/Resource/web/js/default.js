@@ -1,5 +1,3 @@
-window.lat = 52.080310;
-window.lng = 21.011141;
 var map;
 var mark;
 var lineCoords = [];
