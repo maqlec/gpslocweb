@@ -81,5 +81,5 @@ class RecordsQuery extends \Mmi\Orm\Query
 {
 
     protected $_tableName = 'records';
-
+	
 }

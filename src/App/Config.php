@@ -41,7 +41,8 @@ class Config extends \Cms\App\CmsKernelConfig {
 
 		//ustawienia routera
 		$this->router = new \Mmi\Mvc\RouterConfig;
-		$this->router->setRoutes((new \Cms\App\CmsRouterConfig)->toArray());
+		$this->router->setRoutes((new \App\RouterConfig())->toArray())
+			->setRoutes((new \Cms\App\CmsRouterConfig)->toArray());
 
 		//konfiguracja sesji
 		$this->session = new \Mmi\Session\SessionConfig;
