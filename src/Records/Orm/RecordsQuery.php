@@ -80,6 +80,13 @@ namespace Records\Orm;
 class RecordsQuery extends \Mmi\Orm\Query
 {
 
-    protected $_tableName = 'records';
-	
+	protected $_tableName = 'records';
+
+	public function byDatesQuery($dateFrom, $dateTo)
+	{
+		return $this
+				->whereTimestamp()->greaterOrEquals($dateFrom)
+				->andFieldTimestamp()->lessOrEquals($dateTo);
+	}
+
 }

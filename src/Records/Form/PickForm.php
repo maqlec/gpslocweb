@@ -11,7 +11,11 @@ class PickForm extends \Mmi\Form\Form
 			->setLabel('urządzenie')
 			->setMultioptions((new \Records\Model\RecordsModel())->getClientsImei());
 		
-		$this->addElementSubmit('sumbit')
+		$this->addElementText('dateFrom');
+
+		$this->addElementText('dateTo');
+
+		$this->addElementSubmit('submit')
 			->setLabel('pokaz');
 		
 	}
