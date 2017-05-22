@@ -11,6 +11,13 @@
 			table, th, td {
 				border: 1px solid black;
 			}
+			div.left {
+			}
+			div.right {
+				position: absolute;
+				top: 0px;
+				left: 370px;
+			}
 		</style>
 	</head>
 	<body>

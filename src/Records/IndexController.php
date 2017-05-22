@@ -22,4 +22,15 @@ class IndexController extends \Mmi\Mvc\Controller
 		$this->view->form = $form;
 	}
 
+	/**
+	 * Akcja wylogowania
+	 */
+	public function logoutAction()
+	{
+		$this->getMessenger()->clearMessages();
+		\App\Registry::$auth->clearIdentity();
+		//hit do statystyk
+		$this->getResponse()->redirect('records');
+	}
+
 }
