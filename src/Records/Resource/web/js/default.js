@@ -46,7 +46,7 @@ function initialize() {
 		scrollwheel: false
 	});
 
-	var flightPlanCoordinates = [];
+	var planCoordinates = [];
 	var bounds = new google.maps.LatLngBounds();
 
 	for (i = 0; i < locations.length; i++) {
@@ -55,7 +55,7 @@ function initialize() {
 			map: map,
 			icon: " "
 		});
-		flightPlanCoordinates.push(marker.getPosition());
+		planCoordinates.push(marker.getPosition());
 		bounds.extend(marker.position);
 
 	}
@@ -64,7 +64,8 @@ function initialize() {
 
 	var path = new google.maps.Polyline({
 		map: map,
-		path: flightPlanCoordinates,
+		path: planCoordinates,
+		geodesic: true,
 		strokeColor: "#FF0000",
 		strokeOpacity: 1.0,
 		strokeWeight: 2

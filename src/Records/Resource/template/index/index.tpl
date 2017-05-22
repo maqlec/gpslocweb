@@ -1,3 +1,4 @@
+<a href="{$baseUrl}/cmsAdmin/index/logout">wyloguj</a>
 <div class="container">
 	<h1>Lokalizacja z FM2200</h1>
 	<div id="map-canvas" style="width:1200px;height:600px"></div>
