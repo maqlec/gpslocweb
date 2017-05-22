@@ -7,10 +7,18 @@ class IndexController extends \Mmi\Mvc\Controller
 
 	public function indexAction()
 	{
-		$records = (new Orm\RecordsQuery())->byDatesQuery('2017-05-09 11:00', '2017-05-09 12:00')->find();
-//		var_dump($records);
+		$form = new Form\PickForm(null);
+		$records = (new Orm\RecordsQuery())->pointsQuery(
+				$form->getElement('imei')->getValue(), $form->getElement('dateFrom')->getValue(), $form->getElement('dateTo')->getValue()
+			)->find();
 		$this->view->records = $records;
-		$form = new Form\PickForm();
+		$points = [];
+		foreach ($records as $record) {
+			$object['point']['lat'] = $record->latitude;
+			$object['point']['lng'] = $record->longitude;
+			$points[] = $object;
+		}
+		$this->view->json = json_encode($points, JSON_NUMERIC_CHECK);
 		$this->view->form = $form;
 	}
 

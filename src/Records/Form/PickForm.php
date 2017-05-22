@@ -7,7 +7,7 @@ class PickForm extends \Mmi\Form\Form
 	
 	public function init() {
 		
-		$this->addElementSelect('devices')
+		$this->addElementSelect('imei')
 			->setLabel('urządzenie')
 			->setMultioptions((new \Records\Model\RecordsModel())->getClientsImei());
 		
