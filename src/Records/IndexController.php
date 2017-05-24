@@ -22,6 +22,20 @@ class IndexController extends \Mmi\Mvc\Controller
 		$this->view->form = $form;
 	}
 
+	public function positionAction()
+	{
+		$this->getResponse()->setTypeJson();
+		$record = (new Orm\RecordsQuery)
+			->orderDescTimestamp()
+			->limit(1)
+			->findFirst();
+		$coords = [
+			'latitude' => $record->latitude,
+			'longitude' => $record->longitude
+		];
+		return json_encode($coords, JSON_NUMERIC_CHECK);
+	}
+
 	/**
 	 * Akcja wylogowania
 	 */

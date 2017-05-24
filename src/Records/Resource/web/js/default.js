@@ -64,7 +64,7 @@ window.initialize = initialize;
 //
 //var updatePosition = function () {
 //	$.ajax({
-//		url: '/getposition.php',
+//		url: '/position',
 //		type: 'GET',
 //		dataType: 'json'
 //	}).done(function (data) {
