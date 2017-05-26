@@ -8,31 +8,16 @@ class IndexController extends \Mmi\Mvc\Controller
 	public function indexAction()
 	{
 		$form = new Form\PickForm(null);
-		$records = (new Orm\RecordsQuery())->pointsQuery(
-				$form->getElement('imei')->getValue(), $form->getElement('dateFrom')->getValue(), $form->getElement('dateTo')->getValue()
-			)->find();
+		$records = (new Model\RecordsModel)->getPoints($form->getElement('imei')->getValue(), $form->getElement('dateFrom')->getValue(), $form->getElement('dateTo')->getValue());
 		$this->view->records = $records;
-		$points = [];
-		foreach ($records as $record) {
-			$object['point']['lat'] = $record->latitude;
-			$object['point']['lng'] = $record->longitude;
-			$points[] = $object;
-		}
-		$this->view->json = json_encode($points, JSON_NUMERIC_CHECK);
+		$this->view->json = (new Model\RecordsModel)->getPointsJson($records);
 		$this->view->form = $form;
 	}
 
 	public function positionAction()
 	{
 		$this->getResponse()->setTypeJson();
-		$record = (new Orm\RecordsQuery)
-			->orderDescTimestamp()
-			->limit(1)
-			->findFirst();
-		$coords = [
-			'latitude' => $record->latitude,
-			'longitude' => $record->longitude
-		];
+		$coords = (new \Records\Model\RecordsModel)->newestPoint();
 		return json_encode($coords, JSON_NUMERIC_CHECK);
 	}
 

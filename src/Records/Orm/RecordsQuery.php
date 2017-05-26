@@ -85,38 +85,15 @@ class RecordsQuery extends \Mmi\Orm\Query
 	/**
 	 * 
 	 * @param type $imei
-	 * @return type
-	 */
-	public function byImeiQuery($imei)
-	{
-		return $this
-				->whereImei()->equals($imei);
-	}
-
-	/**
-	 * 
-	 * @param type $dateFrom
-	 * @param type $dateTo
-	 * @return type
-	 */
-	public function byDatesQuery($dateFrom, $dateTo)
-	{
-		return $this
-				->whereTimestamp()->greaterOrEquals($dateFrom)
-				->andFieldTimestamp()->lessOrEquals($dateTo);
-	}
-
-	/**
-	 * 
-	 * @param type $imei
 	 * @param type $dateFrom
 	 * @param type $dateTo
 	 */
 	public function pointsQuery($imei, $dateFrom, $dateTo)
 	{
 		return $this
-				->byImeiQuery($imei)
-				->andQuery($this->byDatesQuery($dateFrom, $dateTo));
+				->whereImei()->equals($imei)
+				->whereTimestamp()->greaterOrEquals($dateFrom)
+				->andFieldTimestamp()->lessOrEquals($dateTo);
 	}
 
 }
