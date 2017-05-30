@@ -50,6 +50,6 @@
 	{/if}
 	window.points = {$json};
 </script>
-<script src="{$baseUrl}/resource/records/js/default.js"></script>
+<script src="{$baseUrl}/resource/records/js/default.js?a=1"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyC-eMiZe3gl7ZQLBx5i5-N41Y7Xex6Vml8&callback=initialize"></script>
 
