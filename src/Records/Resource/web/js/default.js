@@ -23,9 +23,9 @@ var initialize = function () {
 		lineCoords.push(mark.getPosition());
 		bounds.extend(mark.position);
 	}
-	
+
 	map.fitBounds(bounds);
-	
+
 	var path = new google.maps.Polyline({
 		map: map,
 		path: lineCoords,
@@ -42,6 +42,19 @@ var redraw = function (payload) {
 	lat = payload.latitude;
 	lng = payload.longitude;
 	map.setCenter({lat: lat, lng: lng, alt: 0});
+	if (typeof mark == 'undefined') {
+		mark = new google.maps.Marker({
+			position: new google.maps.LatLng(lat, lng),
+			map: map,
+			icon: {
+				path: google.maps.SymbolPath.CIRCLE,
+				scale: 3.5,
+				fillColor: "#F00",
+				fillOpacity: 0.4,
+				strokeWeight: 0.4
+			}
+		});
+	}
 	mark.setPosition({lat: lat, lng: lng, alt: 0});
 	lineCoords.push(new google.maps.LatLng(lat, lng));
 	var lineCoordinatesPath = new google.maps.Polyline({
@@ -63,7 +76,11 @@ var updatePosition = function () {
 	})
 };
 
-updatePosition();
-setInterval(function () {
-	updatePosition();
-}, 30000);	
+$(document).ready(function () {
+	if (window.live) {
+		updatePosition();
+		setInterval(function () {
+			updatePosition();
+		}, 10000);
+	}
+});
