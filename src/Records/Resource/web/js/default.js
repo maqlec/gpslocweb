@@ -81,6 +81,6 @@ $(document).ready(function () {
 		updatePosition();
 		setInterval(function () {
 			updatePosition();
-		}, 10000);
+		}, 30000);
 	}
 });
