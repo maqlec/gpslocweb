@@ -21,7 +21,7 @@ var initialize = function () {
 			icon: " "
 		});
 		lineCoords.push(mark.getPosition());
-		bounds.extend(mark.position);
+		bounds.extend(mark.getPosition());
 	}
 
 	map.fitBounds(bounds);
@@ -59,11 +59,11 @@ var redraw = function (payload) {
 	lineCoords.push(new google.maps.LatLng(lat, lng));
 	var lineCoordinatesPath = new google.maps.Polyline({
 		path: lineCoords,
+		map: map,
 		geodesic: true,
 		strokeColor: '#2E10FF'
 	});
 
-	lineCoordinatesPath.setMap(map);
 };
 
 var updatePosition = function () {

@@ -1,16 +1,11 @@
 <a href="{@module=records&controller=index&action=logout@}">wyloguj</a>
 <div class="left">
-	{$form->start()}
-	{$form->getElement('imei')}
-	<input id="datepickerFrom" type="text" name="records-form-pickform[dateFrom]" value="{$form->getElement('dateFrom')->getValue()}">
-	<input id="datepickerTo" type="text" name="records-form-pickform[dateTo]" value="{$form->getElement('dateTo')->getValue()}">
-	{$form->getElement('submit')}
+	{$form}
 	<a href="{@module=records&controller=index&action=index@}">live</a>
-	{$form->end()}
 	<script>
 		$(function () {
-			$("#datepickerFrom").appendDtpicker();
-			$("#datepickerTo").appendDtpicker();
+			$("#records-form-pickform-dateFrom").appendDtpicker();
+			$("#records-form-pickform-dateTo").appendDtpicker();
 		});
 	</script>
 
